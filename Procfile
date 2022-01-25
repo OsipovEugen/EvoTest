@@ -1,0 +1,1 @@
+web: gunicorn EvoTest.wsgi --log-file -
