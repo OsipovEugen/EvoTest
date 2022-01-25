@@ -16,15 +16,10 @@ class PersonCreate(SuccessMessageMixin, CreateView):
     raise_exception = True
 
 
-    # def form_valid(self, form):
-    #     messages.success(self.request, "This is my success message")
-    #     super().form_valid(form)
-    #     return HttpResponseRedirect(self.get_success_url())
     def form_valid(self, form):
         email = form.cleaned_data['email']
         form.save()
         messages.success(self.request, f'Привіт, {email}')
-        # messages.error(self.request, 'Invalid form submission.')
         return HttpResponseRedirect(self.request.path_info)
 
 
